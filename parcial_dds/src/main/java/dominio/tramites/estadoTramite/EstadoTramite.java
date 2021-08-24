@@ -1,6 +1,7 @@
 package dominio.tramites.estadoTramite;
 
 import dominio.tramitante.Tramitante;
+import dominio.tramites.Tramite;
 
 public enum EstadoTramite {
 
@@ -10,16 +11,23 @@ public enum EstadoTramite {
         public void impactarSobreTramitante(Tramitante personaIniciadora) {
             personaIniciadora.seRechazoUnTramite();
         }
+
+        @Override
+        public void validar(Tramite tramiteSimple) {
+
+        }
     },
 
     PENDIENTE {
         @Override
-        public Boolean estoyPendiente(){
-            return true;
-        }
+        public void impactarSobreTramitante(Tramitante personaIniciadora) { }
 
         @Override
-        public void impactarSobreTramitante(Tramitante personaIniciadora) { }
+        public void validar(Tramite tramite) {
+            EstadoTramite estadoFinal = tramite.esValido() ? APROBADO : RECHAZADO;
+            tramite.setEstado(estadoFinal);
+            estadoFinal.impactarSobreTramitante(tramite.getPersonaIniciadora());
+        }
     },
 
     APROBADO {
@@ -27,11 +35,14 @@ public enum EstadoTramite {
         public void impactarSobreTramitante(Tramitante personaIniciadora) {
             personaIniciadora.seAproboUnTramite();
         }
+
+        @Override
+        public void validar(Tramite tramiteSimple) {
+
+        }
     };
 
-    public Boolean estoyPendiente(){
-        return false;
-    }
-
     public abstract void impactarSobreTramitante(Tramitante personaIniciadora);
+
+    public abstract void validar(Tramite tramiteSimple);
 }

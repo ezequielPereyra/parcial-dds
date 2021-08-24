@@ -8,22 +8,27 @@ import java.time.LocalDateTime;
 
 public abstract class Tramite implements PrototypeTramites {
 
-    protected EstadoTramite estadoActual = EstadoTramite.PENDIENTE;
-    protected LocalDateTime fechaInicio;
-    protected String nombre;
+    protected EstadoTramite estado = EstadoTramite.PENDIENTE;
+    private LocalDateTime fechaInicio;
+    private String nombre;
     protected Tramitante personaIniciadora;
 
-    public void validarTramite(){
-        if(this.hayQueValidar()){
-            this.concretarValidacion();
-        }
+    public void setEstado(EstadoTramite estado) {
+        this.estado = estado;
     }
 
-    private Boolean hayQueValidar() {
-        return this.getEstado().estoyPendiente();
+    public Tramitante getPersonaIniciadora() {
+        return personaIniciadora;
     }
 
-    public abstract EstadoTramite getEstado();
+    public Tramite(Tramite fuente) {
+        this.fechaInicio = fuente.fechaInicio;
+        this.nombre = fuente.nombre;
+        this.personaIniciadora = fuente.personaIniciadora;
+        this.estado = fuente.estado;
+    }
 
-    public abstract void concretarValidacion();
+    public abstract void validarTramite();
+
+    public abstract boolean esValido();
 }

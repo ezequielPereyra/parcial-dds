@@ -1,10 +1,7 @@
 package dominio.tramites.tramiteSimple;
 
 import dominio.tramites.Tramite;
-import dominio.tramites.estadoTramite.EstadoTramite;
 import dominio.tramites.tramiteSimple.validaciones.ValidacionNecesaria;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,34 +9,28 @@ public class TramiteSimple extends Tramite {
 
     private final List<ValidacionNecesaria> validaciones = new ArrayList<>();
 
-    @Override
-    public EstadoTramite getEstado() {
-        return this.estadoActual;
+    public TramiteSimple(TramiteSimple fuente) {
+        super(fuente);
+        this.agregarValidaciones(fuente.validaciones);
     }
 
-    @Override
-    public void concretarValidacion() {
-        if(validaciones.stream().anyMatch(validacion -> !validacion.esValido(this))){
-            this.estadoActual = EstadoTramite.RECHAZADO;
-        }
-        else{
-            this.estadoActual = EstadoTramite.APROBADO;
-        }
-
-        this.estadoActual.impactarSobreTramitante(this.personaIniciadora);
-    }
 
     @Override
     public Tramite clonarTramite() {
-        TramiteSimple clon = new TramiteSimple();
-        clon.fechaInicio = LocalDateTime.now();
-        clon.nombre = this.nombre;
-        clon.estadoActual = EstadoTramite.PENDIENTE;
-        clon.agregarValidaciones(this.validaciones);
-        return clon;
+        return new TramiteSimple(this);
     }
 
     private void agregarValidaciones(List<ValidacionNecesaria> validaciones) {
         this.validaciones.addAll(validaciones);
+    }
+
+    @Override
+    public void validarTramite() {
+        this.estado.validar(this);
+    }
+
+    @Override
+    public boolean esValido() {
+        return this.validaciones.stream().allMatch(validacion -> validacion.esValido(this));
     }
 }
