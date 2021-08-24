@@ -9,14 +9,52 @@ public class main {
 
     public static void main(String[] args) {
 
+        System.out.println("Vamos a persistir algunas provincias de ejemplo.");
+
+        String nombreACambiar = "Prueba";
+
         Provincia provincia = new Provincia();
         provincia.setLatitud(-26.9468463);
         provincia.setLongitud(-65.2857082);
         provincia.setZonaHoraria("GMT-03:00");
         provincia.setNombre("Tucumán");
 
-        persistirProvincia(provincia);
+        Provincia otraProvincia = new Provincia();
+        otraProvincia.setLatitud(-30.9468463);
+        otraProvincia.setLongitud(-18.2857082);
+        otraProvincia.setZonaHoraria("GMT-03:00");
+        otraProvincia.setNombre(nombreACambiar);
 
+        Provincia unaProvincia = new Provincia();
+        unaProvincia.setLatitud(-30.9468463);
+        unaProvincia.setLongitud(-18.2857082);
+        unaProvincia.setZonaHoraria("GMT-03:00");
+        unaProvincia.setNombre(nombreACambiar);
+
+        persistirProvincia(provincia);
+        persistirProvincia(otraProvincia);
+        persistirProvincia(unaProvincia);
+
+        System.out.println("Ahora vamos a cambiarle el nombre a la que se llama: " + nombreACambiar);
+
+        cambiarNombreDeProvincia(nombreACambiar);
+
+        System.out.println("Finalmente mostramos todas las provincias persistidas: ");
+        mostrarTodas();
+
+    }
+
+    private static void mostrarTodas() {
+        //TODO
+    }
+
+    private static void cambiarNombreDeProvincia(String nombreACambiar) {
+        if(provinciaDAO.cambiarNombreProvincia(nombreACambiar, "Tierra del Fuego")){
+            System.out.println("¡Se pudo cambiar con exito!");
+        }
+        else {
+            System.out.println("Hubo un problema y no se pudo cambiar el nombre de la provincia");
+        }
     }
 
     private static void persistirProvincia(Provincia provincia) {
