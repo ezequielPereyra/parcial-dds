@@ -1,4 +1,4 @@
-package dominio;
+package dominio.hasheador;
 
 public interface Hasheador{
     String hashear(String contrasenia);

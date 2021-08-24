@@ -1,4 +1,4 @@
-package dominio;
+package dominio.hasheador;
 import org.mindrot.jbcrypt.BCrypt;
 public class HasheadorBCrypt implements Hasheador{
     private static final Integer COMPLEJIDAD = 12;

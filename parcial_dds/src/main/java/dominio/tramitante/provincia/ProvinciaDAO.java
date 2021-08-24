@@ -1,5 +1,6 @@
 package dominio.tramitante.provincia;
 import java.sql.*;
+
 public class ProvinciaDAO {
 
     private Connection conn;
@@ -99,5 +100,10 @@ public class ProvinciaDAO {
             return false;
         }
 
+    }
+
+    public int insert(Provincia provincia) {
+        return this.insert(provincia.getNombre(), provincia.getZonaHoraria(),
+                provincia.getLatitud(), provincia.getLongitud());
     }
 }

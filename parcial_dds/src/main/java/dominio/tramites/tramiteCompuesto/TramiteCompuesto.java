@@ -32,6 +32,7 @@ public class TramiteCompuesto extends Tramite {
 
     private void actualizarEstado() {
         this.estado = this.calcularEstado();
+        this.estado.impactarSobreTramitante(this.personaIniciadora);
     }
 
     private EstadoTramite calcularEstado() {

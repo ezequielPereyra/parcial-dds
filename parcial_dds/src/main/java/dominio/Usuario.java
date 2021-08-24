@@ -1,9 +1,13 @@
 package dominio;
+import dominio.hasheador.Hasheador;
+import dominio.hasheador.HasheadorBCrypt;
 import org.apache.commons.lang3.StringUtils;
-public class Usuario{
+
+public class Usuario {
     private String usuario;
     private String password;
     private Hasheador hasheador = new HasheadorBCrypt();
+
     public String getUsuario() {
         return usuario;
     }
@@ -17,7 +21,7 @@ public class Usuario{
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hasheador.hashear(password);
     }
 
     public boolean validarLogin(String usuario, String password) {

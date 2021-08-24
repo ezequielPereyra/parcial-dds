@@ -1,5 +1,6 @@
 package dominio.tramitante;
 
+import dominio.Usuario;
 import dominio.tramitante.estadoTramitante.EstadoTramitante;
 import dominio.tramitante.estadoTramitante.Valido;
 import dominio.tramitante.provincia.Provincia;
@@ -17,6 +18,7 @@ public class Tramitante {
     private String telefono;
     private EstadoTramitante estado = new Valido();
     private Provincia provincia;
+    private Usuario usuario;
 
     public void seRechazoUnTramite() {
         this.estado.seRechazoUnTramite(this);
