@@ -35,4 +35,12 @@ public abstract class Tramite implements PrototypeTramites {
     public abstract void validarTramite();
 
     public abstract boolean esValido();
+
+    public Integer edadDelTramitante() {
+        return this.personaIniciadora.edad();
+    }
+
+    public Integer aniosAntiguedadTramitante() {
+        return this.personaIniciadora.aniosAntiguedad();
+    }
 }
