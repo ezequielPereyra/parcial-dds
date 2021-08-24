@@ -1,6 +1,6 @@
 package dominio.tramites.estadoTramite;
 
-import dominio.tramites.tramitante.Tramitante;
+import dominio.tramitante.Tramitante;
 
 public enum EstadoTramite {
 

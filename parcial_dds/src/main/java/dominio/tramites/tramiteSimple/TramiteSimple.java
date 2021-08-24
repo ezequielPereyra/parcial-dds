@@ -1,8 +1,8 @@
-package dominio.tramites.tramitante.tramiteSimple;
+package dominio.tramites.tramiteSimple;
 
 import dominio.tramites.Tramite;
 import dominio.tramites.estadoTramite.EstadoTramite;
-import dominio.tramites.tramitante.tramiteSimple.validaciones.ValidacionNecesaria;
+import dominio.tramites.tramiteSimple.validaciones.ValidacionNecesaria;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

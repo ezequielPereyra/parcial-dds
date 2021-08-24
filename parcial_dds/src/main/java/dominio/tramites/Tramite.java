@@ -2,7 +2,7 @@ package dominio.tramites;
 
 import dominio.tramites.estadoTramite.EstadoTramite;
 import dominio.tramites.prototypeTramites.PrototypeTramites;
-import dominio.tramites.tramitante.Tramitante;
+import dominio.tramitante.Tramitante;
 
 import java.time.LocalDateTime;
 

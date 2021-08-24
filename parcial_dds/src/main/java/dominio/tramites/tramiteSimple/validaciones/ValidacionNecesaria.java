@@ -1,4 +1,4 @@
-package dominio.tramites.tramitante.tramiteSimple.validaciones;
+package dominio.tramites.tramiteSimple.validaciones;
 
 import dominio.tramites.Tramite;
 

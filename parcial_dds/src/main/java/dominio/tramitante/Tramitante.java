@@ -1,4 +1,4 @@
-package dominio.tramites.tramitante;
+package dominio.tramitante;
 
 public class Tramitante {
     public void seRechazoUnTramite() {
