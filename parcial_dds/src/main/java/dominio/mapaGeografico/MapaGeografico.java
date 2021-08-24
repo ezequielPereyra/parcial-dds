@@ -2,7 +2,7 @@ package dominio.mapaGeografico;
 
 import dominio.mapaGeografico.proveedorProvincias.AdapterAPIML;
 import dominio.mapaGeografico.proveedorProvincias.ProveedorProvincias;
-import dominio.tramitante.direccion.Provincia;
+import dominio.tramitante.provincia.Provincia;
 
 import java.util.List;
 

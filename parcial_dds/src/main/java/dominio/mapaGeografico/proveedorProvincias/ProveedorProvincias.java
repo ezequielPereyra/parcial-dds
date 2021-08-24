@@ -1,6 +1,6 @@
 package dominio.mapaGeografico.proveedorProvincias;
 
-import dominio.tramitante.direccion.Provincia;
+import dominio.tramitante.provincia.Provincia;
 
 import java.util.List;
 

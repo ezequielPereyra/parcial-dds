@@ -2,6 +2,7 @@ package dominio.tramitante;
 
 import dominio.tramitante.estadoTramitante.EstadoTramitante;
 import dominio.tramitante.estadoTramitante.Valido;
+import dominio.tramitante.provincia.Provincia;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Tramitante {
     private String apellido;
     private String telefono;
     private EstadoTramitante estado = new Valido();
+    private Provincia provincia;
 
     public void seRechazoUnTramite() {
         this.estado.seRechazoUnTramite(this);

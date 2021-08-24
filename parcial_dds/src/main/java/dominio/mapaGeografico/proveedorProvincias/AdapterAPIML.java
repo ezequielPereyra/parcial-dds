@@ -5,7 +5,7 @@ import dominio.mapaGeografico.proveedorProvincias.dtos.countries.CompleteCountry
 import dominio.mapaGeografico.proveedorProvincias.dtos.states.CompleteStateDTO;
 import dominio.mapaGeografico.proveedorProvincias.dtos.countries.CountryDTO;
 import dominio.mapaGeografico.proveedorProvincias.dtos.states.StateDTO;
-import dominio.tramitante.direccion.Provincia;
+import dominio.tramitante.provincia.Provincia;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.GenericType;
@@ -43,6 +43,8 @@ public class AdapterAPIML implements ProveedorProvincias{
         Provincia provincia = new Provincia();
         provincia.setNombre(state.name);
         provincia.setZonaHoraria(state.time_zone);
+        provincia.setLatitud(state.geo_information.location.latitude);
+        provincia.setLongitud(state.geo_information.location.longitude);
 
         return provincia;
     }

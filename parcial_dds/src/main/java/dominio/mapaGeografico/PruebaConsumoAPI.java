@@ -1,6 +1,6 @@
 package dominio.mapaGeografico;
 
-import dominio.tramitante.direccion.Provincia;
+import dominio.tramitante.provincia.Provincia;
 
 public class PruebaConsumoAPI {
 
@@ -14,5 +14,7 @@ public class PruebaConsumoAPI {
         System.out.println("------------------------------");
         System.out.println("Nombre de la provincia: " + provincia.getNombre());
         System.out.println("Zona Horaria: " + provincia.getZonaHoraria());
+        System.out.println("Latitud: " + provincia.getLatitud());
+        System.out.println("Longitud: " + provincia.getLongitud());
     }
 }
