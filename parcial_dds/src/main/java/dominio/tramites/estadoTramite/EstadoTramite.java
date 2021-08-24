@@ -14,7 +14,7 @@ public enum EstadoTramite {
         }
 
         @Override
-        public void validar(Tramite tramiteSimple) {
+        public void validar(Tramite tramite) {
 
         }
     },
@@ -38,14 +38,14 @@ public enum EstadoTramite {
         }
 
         @Override
-        public void validar(Tramite tramiteSimple) {
+        public void validar(Tramite tramite) {
 
         }
     };
 
     public abstract void impactarSobreTramitante(Tramitante personaIniciadora);
 
-    public abstract void validar(Tramite tramiteSimple);
+    public abstract void validar(Tramite tramite);
 
     public EstadoTramite quienGana(EstadoTramite otroEstado) {
         return Stream.of(this, otroEstado).max(Comparator.naturalOrder()).orElse(APROBADO);
