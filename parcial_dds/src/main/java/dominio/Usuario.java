@@ -1,6 +1,6 @@
 package dominio;
 import org.apache.commons.lang3.StringUtils;
-public class Usuario {
+public class Usuario{
     private String usuario;
     private String password;
     private Hasheador hasheador = new HasheadorBCrypt();

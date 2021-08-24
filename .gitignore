@@ -23,3 +23,7 @@
 hs_err_pid*
 
 .idea
+parcial_dds/parcial_dds.iml
+parcial_dds/parcial_dds.ipr
+parcial_dds/parcial_dds.iws
+parcial_dds/target/
