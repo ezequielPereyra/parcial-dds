@@ -96,7 +96,7 @@ public class ProvinciaDAO {
         } catch (SQLException ex) {
 
             // handle any errors
-            System.out.println("Error en Update");
+            System.out.println("Error en Delete");
             return false;
         }
 

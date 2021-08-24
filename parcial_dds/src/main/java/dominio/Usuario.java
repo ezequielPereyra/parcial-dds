@@ -7,7 +7,7 @@ public class Usuario {
     private String usuario;
     private String password;
     private Hasheador hasheador = new HasheadorBCrypt();
-
+    private Boolean soyAdmin;
     public String getUsuario() {
         return usuario;
     }
@@ -22,6 +22,14 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = hasheador.hashear(password);
+    }
+
+    public void setSoyAdmin(Boolean valor){
+        this.soyAdmin = valor;
+    }
+
+    public Boolean getSoyAdmin(){
+        return this.soyAdmin;
     }
 
     public boolean validarLogin(String usuario, String password) {

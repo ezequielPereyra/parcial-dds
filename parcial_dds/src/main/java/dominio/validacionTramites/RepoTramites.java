@@ -1,5 +1,4 @@
 package dominio.validacionTramites;
-
 import dominio.tramites.Tramite;
 
 import java.util.List;
