@@ -8,8 +8,8 @@ public class ProvinciaDAO {
     public Connection newConnection() {
         Connection conn = null;
         try {
-            String connectionUrl = "jdbc:mysql://localhost:3306/parcial-dds";
-            conn = DriverManager.getConnection(connectionUrl, "root", "");
+            String connectionUrl = "jdbc:mysql://localhost:3306/utndds?useTimezone=true&serverTimezone=UTC";
+            conn = DriverManager.getConnection(connectionUrl, "root", "utndds");
 
             // Do something with the Connection
             //System.out.println("Conexi�n realizada");
