@@ -1,5 +1,9 @@
 package dominio.tramitante.provincia;
+import dominio.Usuario;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProvinciaDAO {
 
@@ -105,5 +109,32 @@ public class ProvinciaDAO {
     public int insert(Provincia provincia) {
         return this.insert(provincia.getNombre(), provincia.getZonaHoraria(),
                 provincia.getLatitud(), provincia.getLongitud());
+    }
+
+    public List<Provincia> getTodasLasProvincias(){
+        String consulta = "SELECT * FROM Provincia";
+        try {
+
+            this.conn = newConnection();
+            List<Provincia> provincias = new ArrayList<>();
+            // Ejecuci�n
+            PreparedStatement stmt = this.conn.prepareStatement(consulta);
+            ResultSet rs = stmt.executeQuery(consulta);
+            while(rs.next()){
+                Provincia obj = new Provincia();
+                obj.setNombre(rs.getString("nombre"));
+                obj.setZonaHoraria(rs.getString("zona_horaria"));
+                obj.setLatitud(rs.getDouble("latitud"));
+                obj.setLongitud(rs.getDouble("longitud"));
+                provincias.add(obj);
+            }
+            return provincias;
+
+        } catch (SQLException ex) {
+
+            // handle any errors
+            System.out.println("Error en Select");
+            return null;
+        }
     }
 }
