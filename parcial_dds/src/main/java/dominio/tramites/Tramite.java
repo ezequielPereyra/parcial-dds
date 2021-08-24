@@ -1,8 +1,9 @@
 package dominio.tramites;
 
 import dominio.tramites.estadoTramite.EstadoTramite;
+import dominio.tramites.prototypeTramites.PrototypeTramites;
 
-public abstract class Tramite {
+public abstract class Tramite implements PrototypeTramites {
 
     public void validarTramite(){
         if(this.getEstado().estoyPendiente()){
