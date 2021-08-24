@@ -41,4 +41,8 @@ public class Tramitante {
     public Integer aniosAntiguedad() {
         return this.aniosQuePasaronDesde(this.fechaRegistro);
     }
+
+    public Boolean resideEn(Provincia provincia) {
+        return this.provincia.equals(provincia);
+    }
 }

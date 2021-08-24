@@ -1,5 +1,7 @@
 package dominio.tramitante.provincia;
 
+import java.util.Objects;
+
 public class Provincia {
 
     private String nombre;
@@ -38,5 +40,18 @@ public class Provincia {
 
     public void setZonaHoraria(String zonaHoraria) {
         this.zonaHoraria = zonaHoraria;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Provincia)) return false;
+        Provincia provincia = (Provincia) o;
+        return Objects.equals(getNombre(), provincia.getNombre()) && Objects.equals(getZonaHoraria(), provincia.getZonaHoraria()) && Objects.equals(getLatitud(), provincia.getLatitud()) && Objects.equals(getLongitud(), provincia.getLongitud());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNombre(), getZonaHoraria(), getLatitud(), getLongitud());
     }
 }

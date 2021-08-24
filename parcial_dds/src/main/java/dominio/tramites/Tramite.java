@@ -1,5 +1,6 @@
 package dominio.tramites;
 
+import dominio.tramitante.provincia.Provincia;
 import dominio.tramites.estadoTramite.EstadoTramite;
 import dominio.tramites.prototypeTramites.PrototypeTramites;
 import dominio.tramitante.Tramitante;
@@ -42,5 +43,9 @@ public abstract class Tramite implements PrototypeTramites {
 
     public Integer aniosAntiguedadTramitante() {
         return this.personaIniciadora.aniosAntiguedad();
+    }
+
+    public Boolean perteneceA(Provincia provincia) {
+        return this.personaIniciadora.resideEn(provincia);
     }
 }
