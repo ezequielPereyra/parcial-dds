@@ -27,6 +27,17 @@ public class TramiteCompuesto extends Tramite {
     @Override
     public void validarTramite() {
         this.tramitesRequeridos.forEach(Tramite::validarTramite);
+        this.actualizarEstado();
+    }
+
+    private void actualizarEstado() {
+        this.estado = this.calcularEstado();
+    }
+
+    private EstadoTramite calcularEstado() {
+        return this.tramitesRequeridos.stream()
+                .map(Tramite::getEstado)
+                .reduce(EstadoTramite.APROBADO, EstadoTramite::quienGana);
     }
 
     @Override

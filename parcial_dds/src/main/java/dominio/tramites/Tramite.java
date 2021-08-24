@@ -21,6 +21,10 @@ public abstract class Tramite implements PrototypeTramites {
         return personaIniciadora;
     }
 
+    public EstadoTramite getEstado() {
+        return estado;
+    }
+
     public Tramite(Tramite fuente) {
         this.fechaInicio = fuente.fechaInicio;
         this.nombre = fuente.nombre;
