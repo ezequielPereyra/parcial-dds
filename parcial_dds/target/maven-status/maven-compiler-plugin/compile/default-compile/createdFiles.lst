@@ -1,0 +1,13 @@
+dominio\Hasheador.class
+dominio\Usuario.class
+dominio\tramites\estadoTramite\EstadoTramite.class
+dominio\tramites\prototypeTramites\PrototypeTramites.class
+dominio\tramites\Tramite.class
+dominio\tramites\tramiteSimple\validaciones\ValidacionNecesaria.class
+dominio\tramites\estadoTramite\EstadoTramite$1.class
+dominio\HasheadorBCrypt.class
+dominio\tramites\estadoTramite\EstadoTramite$2.class
+dominio\tramites\tramiteCompuesto\TramiteCompuesto.class
+dominio\tramites\tramiteSimple\TramiteSimple.class
+dominio\tramites\estadoTramite\EstadoTramite$3.class
+dominio\tramitante\Tramitante.class
