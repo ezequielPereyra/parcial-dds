@@ -29,7 +29,7 @@ public class main {
         unaProvincia.setLatitud(-30.9468463);
         unaProvincia.setLongitud(-18.2857082);
         unaProvincia.setZonaHoraria("GMT-03:00");
-        unaProvincia.setNombre(nombreACambiar);
+        unaProvincia.setNombre("Catamarca");
 
         persistirProvincia(provincia);
         persistirProvincia(otraProvincia);
@@ -45,7 +45,13 @@ public class main {
     }
 
     private static void mostrarTodas() {
-        //TODO
+        provinciaDAO.getTodasLasProvincias().forEach(provincia -> {
+            System.out.println("------------------------------");
+            System.out.println("Nombre de la provincia: " + provincia.getNombre());
+            System.out.println("Zona Horaria: " + provincia.getZonaHoraria());
+            System.out.println("Latitud: " + provincia.getLatitud());
+            System.out.println("Longitud: " + provincia.getLongitud());
+        });
     }
 
     private static void cambiarNombreDeProvincia(String nombreACambiar) {
