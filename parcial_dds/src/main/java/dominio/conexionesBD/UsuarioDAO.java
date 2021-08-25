@@ -139,4 +139,8 @@ public class UsuarioDAO {
             return null;
         }
     }
+
+    public int insert(Usuario usuario) {
+        return this.insert(usuario.getUsuario(), usuario.getPassword(), usuario.getSoyAdmin());
+    }
 }

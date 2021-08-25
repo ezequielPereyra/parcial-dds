@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Estado_Tramitante(
 CREATE TABLE IF NOT EXISTS Usuario(
 	id INT AUTO_INCREMENT,
 	nombre_usuario VARCHAR(20),
-	password_hash VARCHAR(50),
+	password_hash VARCHAR(80),
 	es_admin BOOL,
 	PRIMARY KEY (id)
 );

@@ -8,6 +8,7 @@ public class Usuario {
     private String password;
     private Hasheador hasheador = new HasheadorBCrypt();
     private Boolean soyAdmin;
+
     public String getUsuario() {
         return usuario;
     }

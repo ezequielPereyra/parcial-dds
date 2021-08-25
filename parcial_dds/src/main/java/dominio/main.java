@@ -1,11 +1,13 @@
 package dominio;
 
+import dominio.conexionesBD.UsuarioDAO;
 import dominio.tramitante.provincia.Provincia;
 import dominio.conexionesBD.ProvinciaDAO;
 
 public class main {
 
     private static final ProvinciaDAO provinciaDAO = new ProvinciaDAO();
+    private static final UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public static void main(String[] args) {
 
@@ -39,12 +41,57 @@ public class main {
 
         cambiarNombreDeProvincia(nombreACambiar);
 
-        System.out.println("Finalmente mostramos todas las provincias persistidas: ");
-        mostrarTodas();
+        System.out.println("Persistimos dos usuarios distintos");
+
+        Usuario admin = new Usuario();
+        admin.setUsuario("ADMIN");
+        admin.setPassword("PASSWORD");
+        admin.setSoyAdmin(true);
+
+        String usuarioABorrar = "COMUN";
+
+        Usuario comun = new Usuario();
+        comun.setUsuario(usuarioABorrar);
+        comun.setPassword("anmsek-x1");
+        comun.setSoyAdmin(false);
+
+        persistirUsuario(admin);
+        persistirUsuario(comun);
+
+        System.out.println("Ahora vamos a borrar el usuario comun");
+
+        borrarUsuario(usuarioABorrar);
+
+        System.out.println("Finalmente mostramos todas las provincias y usuarios persistidos: ");
+        mostrarTodasLasProvincias();
+        mostrarTodosLosUsuarios();
 
     }
 
-    private static void mostrarTodas() {
+    private static void mostrarTodosLosUsuarios() {
+        usuarioDAO.getTodosLosUsuarios().forEach(usuario -> {
+            System.out.println("------------------------------");
+            System.out.println("Nombre de Usuario: " + usuario.getUsuario());
+            System.out.println("Contrasenia hasheada: " + usuario.getPassword());
+            System.out.println("Es admin: " + usuario.getSoyAdmin());
+        });
+    }
+
+    private static void borrarUsuario(String usuarioABorrar) {
+        if(usuarioDAO.borrarUsuario(usuarioABorrar)){
+            System.out.println("El usuario ha sido borrado con exito!");
+        }
+        else {
+            System.out.println("Hubo un problema y no se pudo borrar al usuario");
+        }
+    }
+
+    private static void persistirUsuario(Usuario admin) {
+        int id = usuarioDAO.insert(admin);
+        System.out.println("El usuario se persistio con exito. Su id es: " + id);
+    }
+
+    private static void mostrarTodasLasProvincias() {
         provinciaDAO.getTodasLasProvincias().forEach(provincia -> {
             System.out.println("------------------------------");
             System.out.println("Nombre de la provincia: " + provincia.getNombre());
