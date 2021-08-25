@@ -1,34 +1,17 @@
-package dominio;
+package dominio.conexionesBD;
+import dominio.Usuario;
 import dominio.tramitante.provincia.Provincia;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dominio.conexionesBD.ConexionMySQL.newConnection;
+
 public class UsuarioDAO {
 
     private Connection conn;
 
-    public Connection newConnection() {
-        Connection conn = null;
-        try {
-            String connectionUrl = "jdbc:mysql://localhost:3306/parcial-dds";
-            conn = DriverManager.getConnection(connectionUrl, "root", "");
-
-            // Do something with the Connection
-            //System.out.println("Conexi�n realizada");
-
-            return conn;
-
-        } catch (SQLException ex) {
-
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-            return null;
-        }
-    }
 
     public int insert(String nombre, String password_hasheada, Boolean soyAdmin){
         String consulta = "INSERT INTO Usuario (nombre_usuario, password_hash, es_admin) VALUES ('" + nombre + "', '" + password_hasheada + "'," + soyAdmin +");";

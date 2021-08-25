@@ -1,34 +1,15 @@
-package dominio.tramitante.provincia;
-import dominio.Usuario;
+package dominio.conexionesBD;
 
+import dominio.tramitante.provincia.Provincia;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dominio.conexionesBD.ConexionMySQL.newConnection;
+
 public class ProvinciaDAO {
 
     private Connection conn;
-
-    public Connection newConnection() {
-        Connection conn = null;
-        try {
-            String connectionUrl = "jdbc:mysql://localhost:3306/utndds?useTimezone=true&serverTimezone=UTC";
-            conn = DriverManager.getConnection(connectionUrl, "root", "utndds");
-
-            // Do something with the Connection
-            //System.out.println("Conexi�n realizada");
-
-            return conn;
-
-        } catch (SQLException ex) {
-
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-            return null;
-        }
-    }
 
     public int insert(String nombre, String zonaHoraria, Double latitud, Double longitud){
         String consulta = "INSERT INTO Provincia (nombre, zona_horaria, latitud, longitud) VALUES ('" + nombre + "', '" + zonaHoraria + "'," + latitud.doubleValue() + "," + longitud.doubleValue() + ");";

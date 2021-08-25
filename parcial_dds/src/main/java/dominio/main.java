@@ -1,7 +1,7 @@
 package dominio;
 
 import dominio.tramitante.provincia.Provincia;
-import dominio.tramitante.provincia.ProvinciaDAO;
+import dominio.conexionesBD.ProvinciaDAO;
 
 public class main {
 
