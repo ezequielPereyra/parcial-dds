@@ -3,7 +3,7 @@ package dominio.tramites.tramiteSimple.validaciones;
 import dominio.tramitante.provincia.Provincia;
 import dominio.tramites.Tramite;
 
-public class VerificarProvincia implements ValidacionNecesaria{
+public class VerificarProvincia extends ValidacionNecesaria{
 
     private Provincia provinciaRequerida;
 

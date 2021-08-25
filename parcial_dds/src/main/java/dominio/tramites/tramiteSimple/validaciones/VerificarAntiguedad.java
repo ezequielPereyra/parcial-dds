@@ -2,7 +2,7 @@ package dominio.tramites.tramiteSimple.validaciones;
 
 import dominio.tramites.Tramite;
 
-public class VerificarAntiguedad implements ValidacionNecesaria{
+public class VerificarAntiguedad extends ValidacionNecesaria{
 
     private Integer aniosDeAntiguedad;
 

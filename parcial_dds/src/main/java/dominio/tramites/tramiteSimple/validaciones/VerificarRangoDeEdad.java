@@ -2,7 +2,7 @@ package dominio.tramites.tramiteSimple.validaciones;
 
 import dominio.tramites.Tramite;
 
-public class VerificarRangoDeEdad implements ValidacionNecesaria{
+public class VerificarRangoDeEdad extends ValidacionNecesaria{
 
     private Integer edadMinima;
     private Integer edadMaxima;
